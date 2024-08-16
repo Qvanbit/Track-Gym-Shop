@@ -8,10 +8,12 @@ DB_FILE = docker_compose/storages.yaml
 DB_CONTAINER = postgres-db
 TELEGRAM_FILE = docker_compose/telegram-bot.yaml
 TELEGRAM_CONTAINER = telegram-bot
+PGADMIN_FILE = docker_compose/pgadmin.yaml
+PGADMIN_CONTAINER = pgadmin
 
 .PHONY: app
 app:
-	${DC} -f ${APP_FILE} ${ENV} -f ${TELEGRAM_FILE} ${ENV} -f ${DB_FILE} ${ENV} up --build -d
+	${DC} -f ${APP_FILE} ${ENV} -f ${TELEGRAM_FILE} ${ENV} -f ${DB_FILE} ${ENV} -f ${PGADMIN_FILE} ${ENV} up --build -d
 
 .PHONY: app-down
 app-down:
@@ -35,4 +37,4 @@ app-shell:
 
 .PHONY: test
 test:
-	${EXEC} ${APP_CONTAINER} pytest
+	${EXEC} ${APP_CONTAINER} pytest`
