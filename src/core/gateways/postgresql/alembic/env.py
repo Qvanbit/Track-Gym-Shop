@@ -9,14 +9,14 @@ from src.core.configs import settings
 
 from src.core.gateways.postgresql.models.base import BaseORM
 from src.core.gateways.postgresql.models.auth.user import User, Role
-
+from src.core.gateways.postgresql.models.operations.operation import Operation
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
 config = context.config
 
 config.set_main_option(
     "sqlalchemy.url",
-    f"postgresql://{settings.POSTGRES_USER}:{settings.POSTGRES_PASSWORD}@{settings.POSTGRES_HOST}:{settings.POSTGRES_PORT}/{settings.POSTGRES_DB}"
+    f"postgresql+asyncpg://{settings.POSTGRES_USER}:{settings.POSTGRES_PASSWORD}@{settings.POSTGRES_HOST}:{settings.POSTGRES_PORT}/{settings.POSTGRES_DB}?async_fallback=True"
 )
 
 # Interpret the config file for Python logging.

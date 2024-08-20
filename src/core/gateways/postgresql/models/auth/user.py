@@ -1,6 +1,6 @@
 from fastapi_users_db_sqlalchemy import SQLAlchemyBaseUserTable
 from sqlalchemy import Boolean, Column, Integer, String, TIMESTAMP, JSON, ForeignKey
-from sqlalchemy.orm import declarative_base, Mapped, mapped_column
+from sqlalchemy.orm import Mapped, mapped_column
 
 from src.core.gateways.postgresql.models.base import Base
 
