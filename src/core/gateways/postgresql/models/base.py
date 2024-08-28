@@ -17,8 +17,8 @@ class Base(BaseORM):
     def __tablename__(cls) -> str:
         return cls.__name__.lower()
     
-    created_at: Mapped[DateTime] = Column(DateTime, default=func.now(), nullable=False)
-    updated_at: Mapped[DateTime] = Column(DateTime, default=func.now(), onupdate=func.now(), nullable=False)
+    created_at: Mapped[DateTime] = Column(DateTime, default=func.now(), nullable=False, comment="Дата создания записи")
+    updated_at: Mapped[DateTime] = Column(DateTime, default=func.now(), onupdate=func.now(), nullable=False, comment="Дата обновления записи")
     
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

@@ -8,8 +8,11 @@ from alembic import context
 from src.core.configs import settings
 
 from src.core.gateways.postgresql.models.base import BaseORM
-from src.core.gateways.postgresql.models.auth.user import User, Role
-from src.core.gateways.postgresql.models.operations.operation import Operation
+from src.core.gateways.postgresql.models.auth.user import UserORM, RoleORM
+from src.core.gateways.postgresql.models.shop.association import category_product
+from src.core.gateways.postgresql.models.shop.product import ProductORM
+from src.core.gateways.postgresql.models.shop.category import CategoryORM
+
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
 config = context.config

@@ -16,6 +16,7 @@ sqlalchemy = "^2.0.31"
 alembic = "^1.13.2"
 asyncpg = "^0.29.0"
 fastapi-users = {extras = ["sqlalchemy"], version = "^13.0.0"}
+aioredis = "^2.0.1"
 
 
 [build-system]

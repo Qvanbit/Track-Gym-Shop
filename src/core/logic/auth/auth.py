@@ -4,7 +4,7 @@ from fastapi_users.authentication import CookieTransport, JWTStrategy, Authentic
 from src.core.configs import settings
 from src.core.gateways.postgresql.auth.manager import get_user_manager
 
-from src.core.gateways.postgresql.models.auth.user import User
+from src.core.gateways.postgresql.models.auth.user import UserORM
 
 cookie_transport = CookieTransport(cookie_name='healthShop',cookie_max_age=3600)
 
@@ -17,7 +17,7 @@ auth_backend = AuthenticationBackend(
     get_strategy=get_jwt_strategy,
 )
 
-fastapi_users = FastAPIUsers[User, int](
+fastapi_users = FastAPIUsers[UserORM, int](
     get_user_manager,
     [auth_backend]
     )

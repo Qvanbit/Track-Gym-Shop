@@ -8,7 +8,7 @@ from sqlalchemy.exc import SQLAlchemyError
 
 from src.core.configs import settings
 from src.core.gateways.postgresql.models.base import Base
-from src.core.gateways.postgresql.models.auth.user import User
+from src.core.gateways.postgresql.models.auth.user import UserORM
 
 # Настройка логирования
 logging.basicConfig(level=logging.INFO)
@@ -39,4 +39,4 @@ async def get_async_session() -> AsyncGenerator[AsyncSession, None]:
 # Функция для получения базы данных пользователей
 async def get_user_db(session: AsyncSession = Depends(get_async_session)):
     logger.info("Getting user database")
-    yield SQLAlchemyUserDatabase(session, User)
+    yield SQLAlchemyUserDatabase(session, UserORM)
